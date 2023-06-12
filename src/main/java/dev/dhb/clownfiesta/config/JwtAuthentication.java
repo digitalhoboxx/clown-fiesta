@@ -23,6 +23,12 @@ public class JwtAuthentication extends OncePerRequestFilter {
             //chain of responsibility design pattern: contains list of other filter that need to be executed
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
-
+        final String authHeader = request.getHeader("Authorization");
+        final String jwt;
+        if(authHeader == null || !authHeader.startsWith("Bearer")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+        jwt = authHeader.substring(7);
     }
 }
