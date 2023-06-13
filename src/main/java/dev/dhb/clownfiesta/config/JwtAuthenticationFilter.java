@@ -42,7 +42,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         userEmail = jwtService.extractUsername(jwt);
         // checks if user is authenticated
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = this.userDetailsService.loadByUsername(UserEmail);
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
         }
     }
 }
