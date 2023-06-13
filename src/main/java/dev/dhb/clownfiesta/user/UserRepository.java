@@ -1,4 +1,4 @@
-package dev.dhb.clownfiesta.User;
+package dev.dhb.clownfiesta.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
