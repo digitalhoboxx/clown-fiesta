@@ -3,7 +3,6 @@ package dev.dhb.clownfiesta.demo;
 import dev.dhb.clownfiesta.config.RBACConfig;
 import dev.dhb.clownfiesta.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,7 +27,7 @@ public class DemoController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             User user = (User) authentication.getPrincipal();
-            System.out.println(rbacConfig.getPermissions().get(user.getRole()));
+            System.out.println(rbacConfig.getPermissions().get(user.getRole().toString().toLowerCase()));
         }
 
         return ResponseEntity.ok("Hello from secured endpoint");
