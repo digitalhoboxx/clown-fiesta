@@ -2,6 +2,11 @@ package dev.dhb.clownfiesta.user;
 
 public enum Role {
 
-    USER,
+    MANAGER1,
+
+    MANAGER2,
+
+    MANAGER3,
+
     ADMIN
 }
